@@ -1,6 +1,7 @@
 const express = require('express');
 
-const { PORT } = require('./config/server.config.js'); 
+require('./config/db.config.js');
+const { PORT } = require('./config/server.config.js');
 
 
 const serverSetup = () =>{
