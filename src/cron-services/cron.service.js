@@ -11,7 +11,7 @@ class CronService {
     
     startScheduler() {
 
-        cron.schedule('* * * * *', async () => {
+        cron.schedule('0 0 * * *', async () => {
             try {
                 await taskRepository.updateTaskPriority();
                 console.log('Task priorities updated.');
@@ -20,7 +20,7 @@ class CronService {
             }
         });
 
-        cron.schedule('* * * * *', async () => {
+        cron.schedule('15 10 * * *', async () => {
             try {
                 console.log('Voice calls initiated.');
                 await this.makeVoiceCalls();

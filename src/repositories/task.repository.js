@@ -1,8 +1,5 @@
 const { taskModel, Status } = require("../models/task.model.js");
 
-// const CronService = require('../cron-services/cron.service.js');
-// const cronService = new CronService();
-
 class TaskRepository{
     addTask = async (details) => {
         const newTask = new taskModel(details);
