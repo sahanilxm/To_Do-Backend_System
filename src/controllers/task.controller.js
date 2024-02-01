@@ -11,7 +11,6 @@ class TaskController{
         };
 
         const task = await taskService.addTask(details);
-        console.log(task);
         res.status(task.status).json({
             data : task.data,
             message : task.message,
