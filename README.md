@@ -13,5 +13,5 @@ Welcome to the ToDo Backend System! This project provides a robust backend infra
     4. Task and Subtask Management:
     5. Create, read, update, and delete tasks.
     6. Manage subtasks associated with tasks.
-    7. Automatic Priority Updates: Prioritize tasks automatically based on due dates.
-    8. Overdue Task Notifications via Calls: Notify users of overdue tasks through phone calls.
+    7. Automatic Priority Updates: Prioritize tasks automatically based on due dates using cron jobs.
+    8. Overdue Task Notifications via Calls: Notify users of overdue tasks through phone calls using cron-jobs.
