@@ -1,10 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-require('./config/db.config.js');
 const { PORT } = require('./config/server.config.js');
 const Router = require('./routes/index.js');
-
+require('./config/db.config.js');
 
 const serverSetup = () =>{
     const server = express();

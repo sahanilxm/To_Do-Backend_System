@@ -1,6 +1,4 @@
-const { TaskRepository } = require('../repositories/index.js');
-
-const taskRepository = new TaskRepository();
+const { taskRepository } = require('../repositories/index.js');
 
 class TaskService{
     addTask = async (details) => {
@@ -22,6 +20,9 @@ class TaskService{
         const task = await taskRepository.removeTask(details);
         return task;
     }
+
 };
 
-module.exports = TaskService;
+const taskService = new TaskService();
+
+module.exports = taskService;

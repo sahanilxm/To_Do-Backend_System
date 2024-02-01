@@ -1,11 +1,14 @@
 const { taskModel, Status } = require("../models/task.model.js");
 
+// const CronService = require('../cron-services/cron.service.js');
+// const cronService = new CronService();
+
 class TaskRepository{
     addTask = async (details) => {
-        console.log(details);
         const newTask = new taskModel(details);
         try{
             const task = await newTask.save();
+            const user_ID = details.user_ID;
             return {
                 data : task,
                 success : true,
@@ -109,6 +112,32 @@ class TaskRepository{
             };
         }
     }
+
+    updateTaskPriority = async () => {
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+
+        const allTasks = await taskModel.find();
+        for(const task of allTasks){
+            const due_date = task.due_date;
+            due_date.setHours(0, 0, 0, 0);
+            const timeDifference = due_date.getTime() - currentDate.getTime();
+            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            if(daysDifference <= 0){
+                task.priority = 0;
+            }
+            else if(daysDifference <= 2){
+                task.priority = 1;
+            }
+            else{
+                task.priority = 2;
+            }
+            await task.save();
+        }
+    }
+    
 };
 
-module.exports = TaskRepository;
+const taskRepository = new TaskRepository();
+
+module.exports = taskRepository;

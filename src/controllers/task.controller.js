@@ -1,5 +1,4 @@
-const { TaskService } = require('../services/index.js');
-const taskService = new TaskService();
+const { taskService } = require('../services/index.js');
 
 class TaskController{
     addTask = async (req, res) => {
