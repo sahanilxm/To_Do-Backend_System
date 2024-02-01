@@ -4,21 +4,13 @@ const userRepository = new UserRepository();
 
 class UserService{
     registerUser = async (details) => {
-        try{
-            const user = await userRepository.registerUser(details);
-            return user;
-        } catch (err){
-            return err;
-        }
+        const user = await userRepository.registerUser(details);
+        return user;
     }
 
     loginUser = async (details) => {
-        try{
-            const user = await userRepository.loginUser(details);
-            return user;
-        } catch (err){
-            return err;
-        }
+        const user = await userRepository.loginUser(details);
+        return user;
     }
 };
 

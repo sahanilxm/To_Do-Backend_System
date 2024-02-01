@@ -15,7 +15,7 @@ const taskSchema = mongoose.Schema({
             type: String, 
             required: true 
         },
-        userId: { 
+        user_ID: { 
             type: String, 
             required: true 
         },
@@ -38,5 +38,5 @@ const taskSchema = mongoose.Schema({
 
 const taskModel = mongoose.model("Task", taskSchema);
 
-module.exports = taskModel;
+module.exports = {taskModel, Status};
 

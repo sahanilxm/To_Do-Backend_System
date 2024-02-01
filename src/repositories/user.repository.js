@@ -94,7 +94,7 @@ class UserRepository {
                 data : {user, token},
                 success : false,
                 error : [],
-                message : "Invalid Password",
+                message : "User login Successfully.",
                 status : 400
             };
         } catch (err) {
